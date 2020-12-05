@@ -12,6 +12,8 @@ function calcAvg(teamArray) {
     for (let i = 0; i < teamArray.length; i++) { // Or 3
         if (rule1 === true) {
             if (teamArray[i] >= 100) {
+                console.log("Team array index", teamArray[i]);
+                // CHECK THIS :)
                 avg = avg + teamArray[i];        // Value of each element is added together 
             }
         } else {
@@ -19,6 +21,8 @@ function calcAvg(teamArray) {
         }
     }
     avg = avg / teamArray.length;                // Calculates the mean, total value divided by number of values
+    console.log("average", avg);
+    // CHECK HERE ASWELL
     return avg;                                  // Returns the average
 }
 
@@ -36,6 +40,8 @@ function winCheck() {
     } else {
         console.log("Team OG Wins!");
     }
+    // HELENA: this does not work because the output is not showing the console, right?
+    // and why is that? Think about where this code lives, in what scope does it exist?
 }
 
 // This works but try other solutions below
@@ -57,6 +63,7 @@ if (rule2 === true) {
         console.log("It's a tie.");             // Repeat code
     }
 }
+// HELENA: in order to calcualte the Bonus 2 you need to use the AND operator
 
 
 
