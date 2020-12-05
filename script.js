@@ -1,5 +1,5 @@
 // Careful with "Global" variables
-let teamOGArr = [96, 108, 89];                   // Array for team OG
+let teamOGArr = [88, 91, 110];                   // Array for team OG
 let teamAArr = [88, 91, 110];                    // Array for team Alliance
 
 let rule1 = true;                                // True enables the above 100 score rule
@@ -39,19 +39,25 @@ function winCheck() {
 }
 
 // This works but try other solutions below
-if (total[0] !== total[1]) {                     // If false, it's a tie 
-    if (rule2 === true) {
-        if (total[0] >= 100 || total[1] >= 100) {
+// If false, it's a tie 
+if (rule2 === true) {
+    if (total[0] >= 100 || total[1] >= 100) {
+        if (total[0] !== total[1]) {
             winCheck();
         } else {
-            console.log("Neither team won.");
+            console.log("It's a tie.");         // Results in tie if the totals aren't equal
         }
     } else {
-        winCheck();
+        console.log("Neither team won.");       
     }
 } else {
-    console.log("It's a tie.");                  // Results in tie if the totals aren't equal
+    if (total[0] !== total[1]) {
+        winCheck();
+    } else {
+        console.log("It's a tie.");             // Repeat code
+    }
 }
+
 
 
 // Could use concatenation so it's "Team " + ${name attributed to highest value variable} + " wins!" ? 
