@@ -1,12 +1,21 @@
+// Careful with "Global" variables
 let teamOGArr = [96, 108, 89];                   // Array for team OG
 let teamAArr = [88, 91, 110];                    // Array for team Alliance
+
+let rule = true;                                 // True enables the above 100 score rule
 
 let total = [0, 0];                              // First stores teamOG average, second stores teamATotal average
 
 function calcAvg(teamArray) {
     let avg = 0;
     for (let i = 0; i < teamArray.length; i++) { // Or 3
-        avg = avg + teamArray[i];                // Value of each element is added together 
+        if (rule === true) {
+            if (teamArray[i] > 100) {
+                avg = avg + teamArray[i];        // Value of each element is added together 
+            }
+        } else {
+            avg = avg + teamArray[i];
+        }
     }
     avg = avg / teamArray.length;                // Calculates the mean, total value divided by number of values
     return avg;                                  // Returns the average
@@ -31,7 +40,7 @@ if (total[0] !== total[1]) {                     // If false, it's a tie
 }
 
 
-// Could we use concatenation so it's "Team " + ${name attributed to highest value variable} + " wins!" ? 
+// Could use concatenation so it's "Team " + ${name attributed to highest value variable} + " wins!" ? 
 // The names would have to be stored (plaintext is fine) and attributed to the highest score from total array. 
 // Switch might be useful here
 // Come back to this, no time
@@ -43,3 +52,5 @@ if (total[0] !== total[1]) {                     // If false, it's a tie
 
 // Switch 
 // Case 1: 
+
+// New method: Add all the values in the arrays and check them against eachother.
