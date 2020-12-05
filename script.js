@@ -2,15 +2,16 @@
 let teamOGArr = [96, 108, 89];                   // Array for team OG
 let teamAArr = [88, 91, 110];                    // Array for team Alliance
 
-let rule = true;                                 // True enables the above 100 score rule
+let rule1 = true;                                // True enables the above 100 score rule
+let rule2 = true;                                // Enables second rule
 
 let total = [0, 0];                              // First stores teamOG average, second stores teamATotal average
 
 function calcAvg(teamArray) {
     let avg = 0;
     for (let i = 0; i < teamArray.length; i++) { // Or 3
-        if (rule === true) {
-            if (teamArray[i] > 100) {
+        if (rule1 === true) {
+            if (teamArray[i] >= 100) {
                 avg = avg + teamArray[i];        // Value of each element is added together 
             }
         } else {
@@ -28,12 +29,25 @@ console.log("Team OG average: " + total[0]);
 total[1] = calcAvg(teamAArr);                    // Get avg for team Alliance
 console.log("Team Alliance average: " + total[1]);
 
-// This works but try other solutions below
-if (total[0] !== total[1]) {                     // If false, it's a tie 
+// Come back to this, unsure if a function is needed
+function winCheck() {
     if (total[0] < total[1]) {                   // If true, team Alliance wins
         console.log("Team Alliance Wins!");
     } else {
         console.log("Team OG Wins!");
+    }
+}
+
+// This works but try other solutions below
+if (total[0] !== total[1]) {                     // If false, it's a tie 
+    if (rule2 === true) {
+        if (total[0] >= 100 || total[1] >= 100) {
+            winCheck();
+        } else {
+            console.log("Neither team won.");
+        }
+    } else {
+        winCheck();
     }
 } else {
     console.log("It's a tie.");                  // Results in tie if the totals aren't equal
