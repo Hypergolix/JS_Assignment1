@@ -1,7 +1,7 @@
 // Careful with "Global" variables
-let teamOGArr = [88, 91, 110];                   // Array for team OG
-let teamAArr = [88, 91, 110];                    // Array for team Alliance
-
+let teamOGArr = [97, 112, 101];                  // Array for team OG
+let teamAArr = [109, 95, 106];                   // Array for team Alliance
+// Unsure of behaviour when 1 is false, 2 is true
 let rule1 = true;                                // True enables the above 100 score rule
 let rule2 = true;                                // Enables second rule
 
@@ -48,7 +48,7 @@ if (rule2 === true) {
             console.log("It's a tie.");         // Results in tie if the totals aren't equal
         }
     } else {
-        console.log("Neither team won.");       
+        console.log("Neither team won.");
     }
 } else {
     if (total[0] !== total[1]) {
